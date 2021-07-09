@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,10 +21,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::get('/', [CarController::class, 'show']);
+// Route::get('/', [CarController::class, 'show']);
+
+Route::get('/cars', [CarController::class, 'show']);
+
+// Route::get('/', [DashboardController::class, 'index']);
 
 
-Route::post('/create', [CarController::class, 'create']);
+Route::get('/cars/create', [CarController::class, 'create']);
+
+Route::post('/store', [CarController::class, 'store']);
 
 Route::get('/cars/{id}/edit', [CarController::class, 'edit']);
 

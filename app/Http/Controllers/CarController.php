@@ -8,7 +8,14 @@ use App\Models\Car;
 
 class CarController extends Controller
 {
-    public function create (Request $request){
+
+    public function create(){
+
+        return view('create');
+        
+    }
+
+    public function store (Request $request){
         $make=$request['make'];
         $model=$request['model'];
         $produced_on=$request['produced_on'];
@@ -20,7 +27,7 @@ class CarController extends Controller
 
         $car->save();
 
-        return redirect('/');
+        return redirect('/cars');
         // $allcar= Car::all();
 
         // return view('index',['allcar'=>$allcar]);
